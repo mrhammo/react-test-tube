@@ -30,9 +30,6 @@ var Experiment = function (_Component) {
         var _this = _possibleConstructorReturn(this, (Experiment.__proto__ || Object.getPrototypeOf(Experiment)).call(this, props));
 
         _this.state = {
-            experiment: {
-                name: props.name
-            },
             variant: {
                 name: null,
                 component: null
@@ -58,7 +55,11 @@ var Experiment = function (_Component) {
     }, {
         key: "render",
         value: function render() {
-            return this.state.variant.component;
+            return React.createElement(
+                "div",
+                { className: "experiment", id: this.props.name },
+                this.state.variant.component
+            );
         }
     }]);
 
@@ -93,7 +94,11 @@ var Variant = function (_Component2) {
     _createClass(Variant, [{
         key: "render",
         value: function render() {
-            return this.props.children;
+            return React.createElement(
+                "div",
+                { className: "variant", id: this.props.name },
+                this.props.children
+            );
         }
     }]);
 

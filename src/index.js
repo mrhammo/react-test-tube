@@ -6,9 +6,6 @@ class Experiment extends Component {
         super(props);
 
         this.state = {
-            experiment: {
-              name: props.name
-            },
             variant: {
                 name: null,
                 component: null
@@ -30,7 +27,11 @@ class Experiment extends Component {
     }
 
     render() {
-        return this.state.variant.component;
+        return (
+          <div className="experiment" id={ this.props.name }>
+              { this.state.variant.component }
+          </div>
+        );
     }
 }
 
@@ -50,7 +51,11 @@ Experiment.defaultProps = {
 
 class Variant extends Component {
     render() {
-        return this.props.children;
+        return (
+            <div className="variant" id={ this.props.name }>
+                { this.props.children }
+            </div>
+        );
     }
 }
 
