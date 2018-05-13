@@ -30,8 +30,11 @@ var Experiment = function (_Component) {
         var _this = _possibleConstructorReturn(this, (Experiment.__proto__ || Object.getPrototypeOf(Experiment)).call(this, props));
 
         _this.state = {
+            experiment: {
+                name: props.name
+            },
             variant: {
-                id: null,
+                name: null,
                 component: null
             }
         };
@@ -39,33 +42,18 @@ var Experiment = function (_Component) {
     }
 
     _createClass(Experiment, [{
-        key: "chooseRandomVariant",
-        value: function chooseRandomVariant() {
-            var index = Math.floor(Math.random() * this.props.children.length);
-            var variant = this.props.children[index];
-
-            return variant;
-        }
-    }, {
-        key: "onParticipation",
-        value: function onParticipation(experiment, variant) {
-            if ("undefined" !== typeof this.props.onParticipation) {
-                this.props.onParticipation(experiment, variant);
-            }
-        }
-    }, {
         key: "componentDidMount",
         value: function componentDidMount() {
-            var variant = this.chooseRandomVariant();
+            var variant = this.props.reducer(this.props.children);
 
             this.setState({
                 variant: {
-                    id: variant.props.id,
+                    name: variant.props.name,
                     component: variant
                 }
             });
 
-            this.onParticipation(this.props.id, variant.props.id);
+            this.props.onParticipation(this.props.name, variant.props.name);
         }
     }, {
         key: "render",
@@ -78,8 +66,19 @@ var Experiment = function (_Component) {
 }(_react.Component);
 
 Experiment.propTypes = {
-    id: _propTypes2.default.string.isRequired,
-    onParticipation: _propTypes2.default.func
+    name: _propTypes2.default.string.isRequired,
+    onParticipation: _propTypes2.default.func,
+    reducer: _propTypes2.default.func
+};
+
+Experiment.defaultProps = {
+    onParticipation: function onParticipation() {
+        return null;
+    },
+    reducer: function reducer(variants) {
+        var index = Math.floor(Math.random() * variants.length);
+        return variants[index];
+    }
 };
 
 var Variant = function (_Component2) {
@@ -102,7 +101,7 @@ var Variant = function (_Component2) {
 }(_react.Component);
 
 Variant.propTypes = {
-    id: _propTypes2.default.string.isRequired
+    name: _propTypes2.default.string.isRequired
 };
 
 exports.Experiment = Experiment;
