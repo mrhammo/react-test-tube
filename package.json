@@ -1,6 +1,6 @@
 {
   "name": "react-test-tube",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Run Google Experiments in your React code.",
   "main": "dist/index.js",
   "scripts": {
@@ -17,6 +17,8 @@
   ],
   "author": "thomas@rocketco.de",
   "license": "MIT",
+  "repository": "https://github.com/mrhammo/react-test-tube",
+  "homepage": "https://github.com/mrhammo/react-test-tube",
   "dependencies": {
     "prop-types": "^15.6.1",
     "react": "^16.3.2"

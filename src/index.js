@@ -6,37 +6,27 @@ class Experiment extends Component {
         super(props);
 
         this.state = {
+            experiment: {
+              name: props.name
+            },
             variant: {
-                id: null,
+                name: null,
                 component: null
             }
         };
     }
 
-    chooseRandomVariant () {
-        const index = Math.floor(Math.random() * (this.props.children.length));
-        const variant = this.props.children[index];
-
-        return variant;
-    }
-
-    onParticipation(experiment, variant) {
-        if ("undefined" !== typeof this.props.onParticipation) {
-            this.props.onParticipation(experiment, variant);
-        }
-    }
-
     componentDidMount() {
-        let variant = this.chooseRandomVariant();
+        let variant = this.props.reducer(this.props.children);
 
         this.setState({
             variant: {
-                id: variant.props.id,
+                name: variant.props.name,
                 component: variant
             }
         });
 
-        this.onParticipation(this.props.id, variant.props.id);
+        this.props.onParticipation(this.props.name, variant.props.name);
     }
 
     render() {
@@ -45,9 +35,18 @@ class Experiment extends Component {
 }
 
 Experiment.propTypes = {
-    id: PropTypes.string.isRequired,
-    onParticipation: PropTypes.func
-};
+    name: PropTypes.string.isRequired,
+    onParticipation: PropTypes.func,
+    reducer: PropTypes.func
+}
+
+Experiment.defaultProps = {
+  onParticipation: () => null,
+  reducer: (variants) => {
+    const index = Math.floor(Math.random() * (variants.length));
+    return variants[index];
+  }
+}
 
 class Variant extends Component {
     render() {
@@ -56,7 +55,7 @@ class Variant extends Component {
 }
 
 Variant.propTypes = {
-    id: PropTypes.string.isRequired
-};
+    name: PropTypes.string.isRequired
+}
 
 export { Experiment, Variant }
