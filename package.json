@@ -1,7 +1,7 @@
 {
   "name": "react-test-tube",
-  "version": "0.0.12",
-  "description": "Run Google Experiments in your React code.",
+  "version": "0.0.13",
+  "description": "Run A/B split tests in your React application.",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src --out-dir dist",

@@ -1,7 +1,7 @@
-import { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
-class Experiment extends Component {
+class Experiment extends React.Component {
     constructor(props) {
         super(props);
 
@@ -49,7 +49,7 @@ Experiment.defaultProps = {
   }
 }
 
-class Variant extends Component {
+class Variant extends React.Component {
     render() {
         return (
             <div className="variant" id={ this.props.name }>

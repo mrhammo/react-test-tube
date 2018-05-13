@@ -9,6 +9,8 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _react = require("react");
 
+var _react2 = _interopRequireDefault(_react);
+
 var _propTypes = require("prop-types");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -21,8 +23,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Experiment = function (_Component) {
-    _inherits(Experiment, _Component);
+var Experiment = function (_React$Component) {
+    _inherits(Experiment, _React$Component);
 
     function Experiment(props) {
         _classCallCheck(this, Experiment);
@@ -55,7 +57,7 @@ var Experiment = function (_Component) {
     }, {
         key: "render",
         value: function render() {
-            return React.createElement(
+            return _react2.default.createElement(
                 "div",
                 { className: "experiment", id: this.props.name },
                 this.state.variant.component
@@ -64,7 +66,7 @@ var Experiment = function (_Component) {
     }]);
 
     return Experiment;
-}(_react.Component);
+}(_react2.default.Component);
 
 Experiment.propTypes = {
     name: _propTypes2.default.string.isRequired,
@@ -82,8 +84,8 @@ Experiment.defaultProps = {
     }
 };
 
-var Variant = function (_Component2) {
-    _inherits(Variant, _Component2);
+var Variant = function (_React$Component2) {
+    _inherits(Variant, _React$Component2);
 
     function Variant() {
         _classCallCheck(this, Variant);
@@ -94,7 +96,7 @@ var Variant = function (_Component2) {
     _createClass(Variant, [{
         key: "render",
         value: function render() {
-            return React.createElement(
+            return _react2.default.createElement(
                 "div",
                 { className: "variant", id: this.props.name },
                 this.props.children
@@ -103,7 +105,7 @@ var Variant = function (_Component2) {
     }]);
 
     return Variant;
-}(_react.Component);
+}(_react2.default.Component);
 
 Variant.propTypes = {
     name: _propTypes2.default.string.isRequired
