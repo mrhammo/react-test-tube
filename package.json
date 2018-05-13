@@ -1,6 +1,6 @@
 {
   "name": "react-test-tube",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Run Google Experiments in your React code.",
   "main": "dist/index.js",
   "scripts": {
