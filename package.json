@@ -1,6 +1,6 @@
 {
   "name": "react-test-tube",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Run A/B split tests in your React application. Compatible with Google Analytics, Optimize and other popular A/B testing tools.",
   "contributors": [
     "Thomas Hampson (https://github.com/mrhammo)"
