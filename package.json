@@ -15,8 +15,7 @@
   "scripts": {
     "test": "jest",
     "build": "babel src --out-dir dist",
-    "dev": "babel src --out-dir dist --source-maps",
-    "dist": "npm publish"
+    "dev": "babel src --out-dir dist --source-maps"
   },
   "keywords": [
     "react",
